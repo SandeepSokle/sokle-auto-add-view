@@ -1,0 +1,15 @@
+# package directories
+node_modules
+jspm_packages
+package-lock.json
+
+# Serverless directories
+.serverless
+
+# test Coverage
+**/coverage/*
+
+**/*.zip
+dist/*
+
+.DS_Store

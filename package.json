@@ -1,0 +1,17 @@
+{
+  "name": "sokle-auto-add-view",
+  "version": "1.0.0",
+  "description": "automation project",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "keywords": [
+    "sokle"
+  ],
+  "author": "sokle",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^14.1.1"
+  }
+}
