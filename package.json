@@ -12,6 +12,7 @@
   "author": "sokle",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.27.2",
     "nodemon": "^2.0.16",
     "puppeteer": "^14.1.1"
   }
