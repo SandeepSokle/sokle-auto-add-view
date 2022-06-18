@@ -6,7 +6,6 @@ const getblogList = async () => {
   let data = await axios.get(
     "https://dynamic-portfolio-api.herokuapp.com/portfolio/getBlogs"
   );
-  // console.log(data.data);
   return data.data;
 };
 
@@ -21,29 +20,12 @@ const getblogList = async () => {
   const page = await browser.newPage();
   await page.setViewport({ width: 1366, height: 768 });
 
-  // console.log(data);
   for (let i = 0; i < data.length; i++) {
     console.log(data[i]);
     await page.goto(data[i]?.link);
-    //   await page.screenshot({ path: "example.png" });
     await autoScroll(page);
   }
-  // data?.map(async (ele) => {
-  //   console.log(ele)
-  //   await page.goto(ele?.link);
-  //   //   await page.screenshot({ path: "example.png" });
-  //   await autoScroll(page);
-  //   // await browser.close();
-  // });
-  // await page.goto(
-  //   "https://primeprogrammingworld.blogspot.com/2021/05/problem-158a-solution-next-round.html"
-  // );
-
-  // await autoScroll(page);
-
-  // setTimeout(async () => {
-    await browser.close();
-  // }, 500);
+  await browser.close();
 })();
 
 async function autoScroll(page) {
@@ -67,5 +49,5 @@ async function autoScroll(page) {
       // }
     });
   });
-  return 
+  return;
 }
