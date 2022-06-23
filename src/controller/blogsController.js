@@ -40,13 +40,13 @@ const viewsFiles = async () => {
     console.log(err.message);
   }
   const browser = await puppeteer.launch({ headless: true, slowMo: 250 });
-  const page = await browser.newPage();
   await page.setViewport({ width: 1366, height: 768 });
-
+  
   for (let i = 0; i < data.length; i++) {
     console.log(data[i]);
+    const page = await browser.newPage();
     await page.goto(data[i]?.link);
-    await autoScroll(page);
+    // await autoScroll(page);
   }
 
   await browser.close();
