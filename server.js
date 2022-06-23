@@ -14,6 +14,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(cors());
 
+app.use("/blogs", blogsRouter);
 
 
 const host = process.env.PORT || 8080;
@@ -22,4 +23,3 @@ app.listen(host, () => {
 });
 
 
-app.use("/blogs", blogsRouter);
