@@ -1,7 +1,15 @@
 const { default: axios } = require("axios");
 const puppeteer = require("puppeteer");
 
-// "https://dynamic-portfolio-api.herokuapp.com/ " + "portfolio/getBlogs",
+const views = async (req, res, next) => {
+  try {
+    await viewsFiles();
+    res.status(200).send("Success!!");
+  } catch (err) {
+    res.status(400).send(err);
+  }
+};
+
 const getblogList = async () => {
   let data = await axios.get(
     "https://dynamic-portfolio-api.herokuapp.com/portfolio/getBlogs"
@@ -10,14 +18,14 @@ const getblogList = async () => {
   return data.data;
 };
 
-(async () => {
+const viewsFiles = async () => {
   let data;
   try {
     data = await getblogList();
   } catch (err) {
     console.log(err.message);
   }
-  const browser = await puppeteer.launch({ headless: false, slowMo: 250 });
+  const browser = await puppeteer.launch({ headless: true, slowMo: 250 });
   const page = await browser.newPage();
   await page.setViewport({ width: 1366, height: 768 });
 
@@ -42,9 +50,9 @@ const getblogList = async () => {
   // await autoScroll(page);
 
   // setTimeout(async () => {
-    await browser.close();
+  await browser.close();
   // }, 500);
-})();
+};
 
 async function autoScroll(page) {
   await page.evaluate(async () => {
@@ -67,5 +75,7 @@ async function autoScroll(page) {
       // }
     });
   });
-  return 
+  return;
 }
+
+module.exports = { views };
