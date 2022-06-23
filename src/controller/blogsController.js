@@ -14,7 +14,6 @@ const getblogList = async () => {
   let data = await axios.get(
     "https://dynamic-portfolio-api.herokuapp.com/portfolio/getBlogs"
   );
-  // console.log(data.data);
   return data.data;
 };
 
@@ -29,11 +28,9 @@ const viewsFiles = async () => {
   const page = await browser.newPage();
   await page.setViewport({ width: 1366, height: 768 });
 
-  // console.log(data);
   for (let i = 0; i < data.length; i++) {
     console.log(data[i]);
     await page.goto(data[i]?.link);
-    //   await page.screenshot({ path: "example.png" });
     await autoScroll(page);
   }
   // data?.map(async (ele) => {
