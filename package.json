@@ -23,6 +23,7 @@
     "node": "^17.7.2",
     "nodemon": "^2.0.16",
     "puppeteer": "^14.1.1",
+    "puppeteer-chromium-resolver": "^14.0.0",
     "uuid": "^8.3.2",
     "yargs": "^17.4.1"
   }

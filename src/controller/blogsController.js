@@ -36,12 +36,25 @@ const viewsFiles = async () => {
   let data;
   try {
     data = await getblogList();
-    const browser = await puppeteer.launch({ headless: true, slowMo: 250 });
+    const PCR = require("puppeteer-chromium-resolver");
+    const option = {
+        revision: "",
+        detectionPath: "",
+        folderName: ".chromium-browser-snapshots",
+        defaultHosts: ["https://storage.googleapis.com", "https://npm.taobao.org/mirrors"],
+        hosts: [],
+        cacheRevisions: 2,
+        retry: 3,
+        silent: true
+    };
+    const stats = await PCR(option);
+
+    const browser = await stats.puppeteer.launch({ headless: true, slowMo: 250 });
     // console.log(data);
     for (let i = 0; i < data.length; i++) {
       // console.log(data[i]);
       const page = await browser.newPage();
-      await page.setViewport({ width: 1366, height: 768 });
+      // await page.setViewport({ width: 1366, height: 768 });
       await page.goto(data[i]?.link);
       await autoScroll(page);
     }
