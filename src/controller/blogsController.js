@@ -41,9 +41,9 @@ const viewsFiles = async () => {
     for (let i = 0; i < data.length; i++) {
       // console.log(data[i]);
       const page = await browser.newPage();
-      // await page.setViewport({ width: 1366, height: 768 });
+      await page.setViewport({ width: 1366, height: 768 });
       await page.goto(data[i]?.link);
-      // await autoScroll(page);
+      await autoScroll(page);
     }
 return true;
     await browser.close();
