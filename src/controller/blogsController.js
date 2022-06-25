@@ -1,5 +1,6 @@
 const { default: axios } = require("axios");
 const puppeteer = require("puppeteer");
+const PCR = require("puppeteer-chromium-resolver");
 
 async function autoScroll(page) {
   await page.evaluate(async () => {
@@ -36,7 +37,6 @@ const viewsFiles = async () => {
   let data;
   try {
     data = await getblogList();
-    const PCR = require("puppeteer-chromium-resolver");
     const option = {
         revision: "",
         detectionPath: "",
