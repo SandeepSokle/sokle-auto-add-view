@@ -42,7 +42,7 @@ const viewsFiles = async () => {
       // console.log(data[i]);
       const page = await browser.newPage();
       // await page.setViewport({ width: 1366, height: 768 });
-      page.goto(data[i]?.link);
+      await page.goto(data[i]?.link);
       // await autoScroll(page);
     }
 return true;
