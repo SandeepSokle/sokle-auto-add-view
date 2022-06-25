@@ -45,7 +45,7 @@ const viewsFiles = async () => {
       page.goto(data[i]?.link);
       // await autoScroll(page);
     }
-
+return true;
     await browser.close();
   } catch (err) {
     console.log(err);
