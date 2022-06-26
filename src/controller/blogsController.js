@@ -52,20 +52,19 @@ const viewsFiles = async () => {
     };
     const stats = await PCR(option);
 
-    const browser = await stats.puppeteer.launch({
-      headless: true,
-      slowMo: 250,
-    });
-    // console.log(data);
     for (let i = 0; i < data.length; i++) {
+      const browser = await puppeteer.launch({
+        headless: true,
+      });
+      // console.log(data);
       // console.log(data[i]);
       const page = await browser.newPage();
       // await page.setViewport({ width: 1366, height: 768 });
       await page.goto(data[i]?.link, { waitUntil: "networkidle0" });
-      await autoScroll(page);
+      // await autoScroll(page);
+      await browser.close();
     }
     return true;
-    await browser.close();
   } catch (err) {
     console.log(err);
   }
