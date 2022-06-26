@@ -45,7 +45,7 @@ const viewsFiles = async () => {
   for (let i = 0; i < data.length; i++) {
     console.log(data[i]);
     const page = await browser.newPage();
-    await page.goto(data[i]?.link);
+    await page.goto(data[i]?.link, {waitUntil: 'networkidle0'});
     // await autoScroll(page);
   }
 
